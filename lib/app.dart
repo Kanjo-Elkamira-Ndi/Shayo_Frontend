@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'core/presentation/splash_screen.dart';
+// import 'core/presentation/splash_screen.dart';
+import 'core/presentation/onboarding_screen.dart';
 
 class ShayoApp extends StatelessWidget {
   const ShayoApp({super.key});
@@ -9,7 +10,8 @@ class ShayoApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Shayo",
-      home: const SplashScreen(),
+      // home: const SplashScreen(),
+      home: const OnboardingScreen(),
     );
   }
 }
