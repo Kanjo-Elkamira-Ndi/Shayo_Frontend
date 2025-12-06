@@ -202,7 +202,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               controller: _emailController,
                               keyboardType: TextInputType.emailAddress,
                               decoration: InputDecoration(
-                                hintText: 'alchemy@gmail.com',
+                                hintText: 'alchemycodes@gmail.com',
                                 hintStyle: const TextStyle(
                                   color: Color(0xFFBDBDBD),
                                   fontSize: 14,
