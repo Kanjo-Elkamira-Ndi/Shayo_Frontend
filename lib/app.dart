@@ -10,7 +10,8 @@ import 'package:flutter/material.dart';
 // import 'features/restaurants/food_screen.dart';
 // import 'features/restaurants/food_details_screen.dart';
 // import 'features/restaurants/restaurant_menu_screen.dart';
-import 'features/cart/cart_screen.dart';
+// import 'features/cart/cart_screen.dart';
+import 'features/cart/edit_cart.dart';
 
 class ShayoApp extends StatelessWidget {
   const ShayoApp({super.key});
@@ -30,7 +31,8 @@ class ShayoApp extends StatelessWidget {
       // home: const HomeScreen(),
       // home: const FoodScreen(),
       // home: const RestaurantMenuScreen(),
-      home: const CartScreen(),
+      // home: const CartScreen(),
+      home: const EditCartScreen(),
     );
   }
 }
