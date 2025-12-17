@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 // import 'features/auth/forgot_password_screen.dart';
 // import 'features/auth/verification_screen.dart';
 // import 'features/auth/signup_screen.dart';
-import 'features/auth/location_access_screen.dart';
+// import 'features/auth/location_access_screen.dart';
+// import 'features/home/home_screen.dart';
+import 'features/restaurants/food_screen.dart';
 
 class ShayoApp extends StatelessWidget {
   const ShayoApp({super.key});
@@ -21,7 +23,9 @@ class ShayoApp extends StatelessWidget {
       // home: const ForgotPasswordScreen(),
       // home: const VerificationScreen(email: ''),
       // home: const SignUpScreen(),
-      home: const LocationAccessScreen(),
+      // home: const LocationAccessScreen(),
+      // home: const HomeScreen(),
+      home: const FoodScreen(),
     );
   }
 }
