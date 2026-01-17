@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _handleSocialLogin(String provider) {
     // TO-DO: Implement social login
-    print('Login with $provider');
+    print('Login With $provider');
   }
 
   @override
