@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'core/presentation/splash_screen.dart';
-// import 'core/presentation/onboarding_screen.dart';
+// import 'core/constants/splash_screen.dart';
+// import 'core/constants/onboarding_screen.dart';
 // import 'features/auth/login_screen.dart';
 // import 'features/auth/forgot_password_screen.dart';
 // import 'features/auth/verification_screen.dart';
