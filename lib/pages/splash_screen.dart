@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import '../routes/app_routes.dart';
 import 'dart:math' as math;
 
 class SplashScreen extends StatefulWidget {
@@ -19,11 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   _navigateToHome() async {
     await Future.delayed(const Duration(seconds: 3));
     if (mounted) {
-      // TO-DO: Replace with your actual navigation logic
-      // Navigator.pushReplacement(
-      //   context,
-      //   MaterialPageRoute(builder: (context) => const HomeScreen()),
-      // );
+      context.go(AppRoutes.onboarding);
     }
   }
 

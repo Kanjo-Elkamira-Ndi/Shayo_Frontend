@@ -1,0 +1,39 @@
+class AppRoutes {
+  AppRoutes._();
+
+  static const String initial = '/';
+  static const String splash = '/splash';
+  static const String onboarding = '/onboarding';
+  static const String login = '/login';
+  static const String register = '/register';
+  static const String verification = '/verification';
+  static const String forgotPassword = '/forgot-password';
+  static const String locationAccess = '/location-access';
+  static const String home = '/home';
+  static const String food = '/food';
+  static const String restaurantMenu = '/restaurant-menu';
+  static const String cart = '/cart';
+  static const String editCart = '/edit-cart';
+  static const String checkout = '/checkout';
+  static const String scheduleDelivery = '/schedule-delivery';
+  static const String profile = '/profile';
+  static const String editProfile = '/edit-profile';
+  static const String addresses = '/addresses';
+  static const String settings = '/settings';
+  static const String notifications = '/notifications';
+  static const String orderHistory = '/order-history';
+  static const String orderTracking = '/order-tracking';
+  static const String orderDetail = '/order-detail';
+  static const String wallet = '/wallet';
+  static const String transactions = '/transactions';
+  static const String rewards = '/rewards';
+  static const String search = '/search';
+  static const String filter = '/filter';
+  static const String education = '/education';
+  static const String recipe = '/recipe';
+  static const String tutorial = '/tutorial';
+  static const String supportChat = '/support-chat';
+  static const String restaurantChat = '/restaurant-chat';
+  static const String writeReview = '/write-review';
+  static const String arPreview = '/ar-preview';
+}

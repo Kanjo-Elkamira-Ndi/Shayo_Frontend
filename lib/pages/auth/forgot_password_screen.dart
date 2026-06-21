@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
+import 'widgets.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -217,49 +217,4 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
       ),
     );
   }
-}
-
-class RaysPainter extends CustomPainter {
-  final bool isTopLeft;
-
-  RaysPainter({required this.isTopLeft});
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = Colors.white.withOpacity(0.1)
-      ..style = PaintingStyle.fill;
-
-    final center = Offset(size.width / 2, size.height / 2);
-    final radius = size.width * 0.8;
-
-    const rayCount = 24;
-    final startAngle = isTopLeft ? math.pi : 0.0;
-    const sweepAngle = math.pi / 2;
-    const angleStep = sweepAngle / rayCount;
-
-    for (int i = 0; i < rayCount; i++) {
-      if (i % 2 == 0) {
-        final angle1 = startAngle + (i * angleStep);
-        final angle2 = startAngle + ((i + 1) * angleStep);
-
-        final path = Path()
-          ..moveTo(center.dx, center.dy)
-          ..lineTo(
-            center.dx + radius * math.cos(angle1),
-            center.dy + radius * math.sin(angle1),
-          )
-          ..lineTo(
-            center.dx + radius * math.cos(angle2),
-            center.dy + radius * math.sin(angle2),
-          )
-          ..close();
-
-        canvas.drawPath(path, paint);
-      }
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

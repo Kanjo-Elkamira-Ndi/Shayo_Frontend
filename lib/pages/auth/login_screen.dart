@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import '../../routes/app_routes.dart';
+import 'widgets.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -23,10 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _handleLogin() {
     if (_formKey.currentState!.validate()) {
-      // TO-DO: Implement login logic
-      print('Email: ${_emailController.text}');
-      print('Password: ${_passwordController.text}');
-      print('Remember me: $_rememberMe');
+      context.go(AppRoutes.home);
     }
   }
 
@@ -49,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
               opacity: 0.3,
               child: CustomPaint(
                 size: const Size(200, 200),
-                painter: RaysPainter(),
+                painter: RaysPainter(isTopLeft: false),
               ),
             ),
           ),
@@ -245,7 +245,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    // TO-DO: Navigate to forgot password
+                                    context.go(AppRoutes.forgotPassword);
                                   },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
@@ -307,7 +307,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                                 GestureDetector(
                                   onTap: () {
-                                    // TO-DO: Navigate to sign up
+                                    context.go(AppRoutes.register);
                                   },
                                   child: const Text(
                                     'SIGN UP',
@@ -340,19 +340,19 @@ class _LoginScreenState extends State<LoginScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                _SocialButton(
+                                SocialButton(
                                   icon: Icons.facebook,
                                   color: const Color(0xFF3B5998),
                                   onTap: () => _handleSocialLogin('Facebook'),
                                 ),
                                 const SizedBox(width: 16),
-                                _SocialButton(
+                                SocialButton(
                                   icon: Icons.email,
                                   color: const Color(0xFF1DA1F2),
                                   onTap: () => _handleSocialLogin('Twitter'),
                                 ),
                                 const SizedBox(width: 16),
-                                _SocialButton(
+                                SocialButton(
                                   icon: Icons.apple,
                                   color: const Color(0xFF000000),
                                   onTap: () => _handleSocialLogin('Apple'),
@@ -374,75 +374,4 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-class _SocialButton extends StatelessWidget {
-  final IconData icon;
-  final Color color;
-  final VoidCallback onTap;
 
-  const _SocialButton({
-    required this.icon,
-    required this.color,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: 50,
-        height: 50,
-        decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-        child: Icon(icon, color: Colors.white, size: 24),
-      ),
-    );
-  }
-}
-
-class RaysPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = Colors.white.withOpacity(0.1)
-      ..style = PaintingStyle.fill;
-
-    final center = Offset(size.width / 2, size.height / 2);
-    final radius = size.width * 0.8;
-
-    const rayCount = 20;
-    const startAngle = 0.0;
-    const endAngle = 3.14159 / 2;
-    const angleStep = endAngle / rayCount;
-
-    for (int i = 0; i < rayCount; i++) {
-      if (i % 2 == 0) {
-        final angle1 = startAngle + (i * angleStep);
-        final angle2 = startAngle + ((i + 1) * angleStep);
-
-        final path = Path()
-          ..moveTo(center.dx, center.dy)
-          ..lineTo(
-            center.dx + radius * cos(angle1),
-            center.dy + radius * sin(angle1),
-          )
-          ..lineTo(
-            center.dx + radius * cos(angle2),
-            center.dy + radius * sin(angle2),
-          )
-          ..close();
-
-        canvas.drawPath(path, paint);
-      }
-    }
-  }
-
-  double cos(double radians) => radians == 0
-      ? 1
-      : radians.isNegative
-      ? -1
-      : 0;
-  double sin(double radians) => radians == 0 ? 0 : 1;
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
-}

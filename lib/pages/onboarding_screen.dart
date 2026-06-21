@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import '../routes/app_routes.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -67,11 +69,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   void _navigateToHome() {
-    // TO-DO: Navigate to main app/auth screen
-    // Navigator.pushReplacement(
-    //   context,
-    //   MaterialPageRoute(builder: (context) => const AuthScreen()),
-    // );
+    context.go(AppRoutes.login);
   }
 
   @override

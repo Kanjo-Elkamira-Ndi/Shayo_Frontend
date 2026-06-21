@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'dart:math' as math;
+import 'widgets.dart';
 
 class VerificationScreen extends StatefulWidget {
   final String email;
@@ -251,7 +251,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: List.generate(
                             4,
-                            (index) => _CodeInputField(
+                            (index) => CodeInputField(
                               controller: _controllers[index],
                               focusNode: _focusNodes[index],
                               onChanged: (value) =>
@@ -299,89 +299,4 @@ class _VerificationScreenState extends State<VerificationScreen> {
   }
 }
 
-class _CodeInputField extends StatelessWidget {
-  final TextEditingController controller;
-  final FocusNode focusNode;
-  final Function(String) onChanged;
 
-  const _CodeInputField({
-    required this.controller,
-    required this.focusNode,
-    required this.onChanged,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 65,
-      height: 65,
-      decoration: BoxDecoration(
-        color: const Color(0xFFF5F5F7),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: TextField(
-        controller: controller,
-        focusNode: focusNode,
-        textAlign: TextAlign.center,
-        keyboardType: TextInputType.number,
-        maxLength: 1,
-        style: const TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-          color: Color(0xFF1A1A1A),
-        ),
-        decoration: const InputDecoration(
-          border: InputBorder.none,
-          counterText: '',
-          contentPadding: EdgeInsets.zero,
-        ),
-        onChanged: onChanged,
-      ),
-    );
-  }
-}
-
-class RaysPainter extends CustomPainter {
-  final bool isTopLeft;
-
-  RaysPainter({required this.isTopLeft});
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = Colors.white.withOpacity(0.1)
-      ..style = PaintingStyle.fill;
-
-    final center = Offset(size.width / 2, size.height / 2);
-    final radius = size.width * 0.8;
-
-    const rayCount = 24;
-    final startAngle = isTopLeft ? math.pi : 0.0;
-    const sweepAngle = math.pi / 2;
-    const angleStep = sweepAngle / rayCount;
-
-    for (int i = 0; i < rayCount; i++) {
-      if (i % 2 == 0) {
-        final angle1 = startAngle + (i * angleStep);
-        final angle2 = startAngle + ((i + 1) * angleStep);
-
-        final path = Path()
-          ..moveTo(center.dx, center.dy)
-          ..lineTo(
-            center.dx + radius * math.cos(angle1),
-            center.dy + radius * math.sin(angle1),
-          )
-          ..lineTo(
-            center.dx + radius * math.cos(angle2),
-            center.dy + radius * math.sin(angle2),
-          )
-          ..close();
-
-        canvas.drawPath(path, paint);
-      }
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
-}
