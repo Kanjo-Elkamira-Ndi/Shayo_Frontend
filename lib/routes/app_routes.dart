@@ -36,4 +36,15 @@ class AppRoutes {
   static const String restaurantChat = '/restaurant-chat';
   static const String writeReview = '/write-review';
   static const String arPreview = '/ar-preview';
+
+  static const String restaurantHome = '/restaurant-home';
+  static const String restaurantOrders = '/restaurant-orders';
+  static const String restaurantFood = '/restaurant-food';
+  static const String restaurantAddDish = '/restaurant-add-dish';
+  static const String restaurantFoodDetail = '/restaurant-food-detail';
+  static const String restaurantProfile = '/restaurant-profile';
+  static const String restaurantPayout = '/restaurant-payout';
+  static const String restaurantNotifications = '/restaurant-notifications';
+  static const String restaurantMessages = '/restaurant-messages';
+  static const String restaurantReviews = '/restaurant-reviews';
 }

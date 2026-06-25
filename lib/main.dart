@@ -37,6 +37,16 @@ import 'pages/customer/profile/edit_profile_page.dart';
 import 'pages/customer/profile/address_management_page.dart';
 import 'pages/customer/settings/settings_page.dart';
 import 'pages/customer/settings/notification_preferences_page.dart';
+import 'pages/restaurant/restaurant_shell.dart';
+import 'pages/restaurant/orders/incoming_orders_page.dart';
+import 'pages/restaurant/menu/menu_management_page.dart';
+import 'pages/restaurant/menu/add_edit_dish_page.dart';
+import 'pages/restaurant/menu/food_detail_page.dart';
+import 'pages/restaurant/profile/restaurant_profile_page.dart';
+import 'pages/restaurant/wallet/payout_page.dart';
+import 'pages/restaurant/chat/customer_chat_page.dart';
+import 'pages/restaurant/settings/notification_preferences_page.dart' as restaurant;
+import 'pages/restaurant/reviews/review_list_page.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: AppRoutes.splash,
@@ -95,6 +105,16 @@ final GoRouter appRouter = GoRouter(
     GoRoute(path: AppRoutes.restaurantChat, builder: (_, __) => const RestaurantChatPage()),
     GoRoute(path: AppRoutes.writeReview, builder: (_, __) => const WriteReviewPage()),
     GoRoute(path: AppRoutes.arPreview, builder: (_, __) => const ArFoodPreviewPage()),
+    GoRoute(path: AppRoutes.restaurantHome, builder: (_, __) => const RestaurantShell()),
+    GoRoute(path: AppRoutes.restaurantOrders, builder: (_, __) => const IncomingOrdersPage()),
+    GoRoute(path: AppRoutes.restaurantFood, builder: (_, __) => const MenuManagementPage()),
+    GoRoute(path: AppRoutes.restaurantFoodDetail, builder: (_, __) => const FoodDetailPage()),
+    GoRoute(path: AppRoutes.restaurantAddDish, builder: (_, __) => const AddEditDishPage()),
+    GoRoute(path: AppRoutes.restaurantProfile, builder: (_, __) => const RestaurantProfilePage()),
+    GoRoute(path: AppRoutes.restaurantPayout, builder: (_, __) => const PayoutPage()),
+    GoRoute(path: AppRoutes.restaurantNotifications, builder: (_, __) => const restaurant.NotificationPreferencesPage()),
+    GoRoute(path: AppRoutes.restaurantMessages, builder: (_, __) => const CustomerChatPage()),
+    GoRoute(path: AppRoutes.restaurantReviews, builder: (_, __) => const ReviewListPage()),
   ],
 );
 
